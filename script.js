@@ -25,6 +25,16 @@
 })();
 
 /**
+ * Hero video: ensure autoplay runs (some browsers need an explicit .play() call)
+ */
+(function () {
+  var heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    heroVideo.play().catch(function () {});
+  }
+})();
+
+/**
  * Header: add .header-scrolled when past hero for background + contrast
  */
 (function () {

@@ -143,7 +143,7 @@ body {
   border-color: rgba(255, 255, 255, 0.45);
 }
 
-/* Hero — warm overlay, soft highlight */
+/* Hero — video background, warm overlay */
 .hero {
   position: relative;
   min-height: 75vh;
@@ -151,7 +151,17 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--color-dark) url("https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1600") center/cover no-repeat;
+  background: var(--color-dark);
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .hero-overlay {
@@ -596,6 +606,22 @@ a:focus-visible,
 }
 
 /* Where we meet section */
+.meet-photo {
+  margin-bottom: var(--space-xl);
+  border-radius: var(--radius-soft);
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(44, 36, 32, 0.08);
+}
+
+.meet-photo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  max-height: 50vh;
+}
+
 .meet-details {
   max-width: 36rem;
   margin: 0 auto;

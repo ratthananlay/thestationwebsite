@@ -133,7 +133,7 @@ body {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Hero — city skyline, 75% viewport height, dark overlay, white + red text */
+/* Hero — YouTube video backdrop, subtle dark scrim, white + red text */
 .hero {
   position: relative;
   min-height: 75vh;
@@ -141,19 +141,48 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--color-dark) url("https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1600") center/cover no-repeat;
+  background: var(--color-dark);
+  overflow: hidden;
+}
+
+/* YouTube (or MP4) full-bleed backdrop; iframe scaled to cover */
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-video-wrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-width: 177.78vh;
+  min-height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Optional: use a self-hosted MP4 instead for better performance (add <video> inside .hero-video-wrap) */
+.hero-video-wrap video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(26, 35, 50, 0.75) 0%, rgba(26, 35, 50, 0.85) 70%, rgba(26, 35, 50, 0.95) 100%);
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
