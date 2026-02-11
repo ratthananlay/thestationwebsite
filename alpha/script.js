@@ -22,6 +22,18 @@
   window.addEventListener('scroll', reveal, { passive: true });
   window.addEventListener('resize', reveal);
   reveal();
+
+  // Auto-reveal #about section elements after a slight delay
+  if (!prefersReducedMotion) {
+    var aboutReveals = document.querySelectorAll('#about .reveal');
+    setTimeout(function () {
+      aboutReveals.forEach(function (el, index) {
+        setTimeout(function () {
+          el.classList.add('visible');
+        }, index * 100); // Stagger each element by 100ms
+      });
+    }, 400); // Initial delay before starting
+  }
 })();
 
 /**

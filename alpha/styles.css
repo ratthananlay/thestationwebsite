@@ -775,6 +775,11 @@ a:focus-visible,
   scroll-margin-top: var(--header-height);
 }
 
+/* Reduce padding between hero and first section */
+#about.section {
+  padding-top: calc(var(--header-height) + (var(--space-xl) / 2) - 2rem);
+}
+
 /* Alpha App section — two columns: text + badges left, red panel with phones right */
 .section-alpha-app {
   padding: var(--space-2xl) 0;
